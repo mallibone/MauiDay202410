@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoI.OfflinePage">
+
+    <Grid>
+        <Label
+            Text="It appears we are offline..."
+            FontSize="30"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            SemanticProperties.Description="It appears we are offline..." />
+    </Grid>
+
+</ContentPage>

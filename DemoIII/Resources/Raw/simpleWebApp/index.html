@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="icon" href="data:,">
+    <script src="scripts/HybridWebView.js"></script>
+    <script>
+        window.addEventListener(
+            "HybridWebViewMessageReceived",
+            function (e) {
+                var messageFromCSharp = document.getElementById("messageFromCSharp");
+                messageFromCSharp.value += '\r\n' + e.detail.message;
+            });
+    </script>
+</head>
+<body>
+    <h1>HybridWebView app!</h1>
+    <div>
+        <button onclick="window.HybridWebView.SendRawMessage('Message from JS!')">Send message to C#</button>
+    </div>
+    <div>
+        Messages from C#: <textarea readonly id="messageFromCSharp" style="width: 80%; height: 300px;"></textarea>
+    </div>
+</body>
+</html>

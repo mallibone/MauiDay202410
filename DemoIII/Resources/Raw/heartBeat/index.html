@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="icon" href="data:,">
+    <style>
+        h1 {
+            font-size: 5em;
+        }
+        div {
+            text-align: center;
+        }
+        p {
+            font-size: 5em;
+        }
+        .heart {
+            font-size: 2em;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+    <script src="scripts/HybridWebView.js"></script>
+    <script>
+        window.addEventListener(
+            "HybridWebViewMessageReceived",
+            function (e) {
+                var heartRate = document.getElementById("heartRate");
+                heartRate.textContent = e.detail.message;
+            });
+    </script>
+</head>
+<body>
+    <h1>Oh my heartbeat!</h1>
+    <div>
+        <p>
+            Current Heart Rate: <span id="heartRate">42</span> 
+            <span class="heart">❤️</span>
+          </p>
+    </div>
+</body>
+</html>

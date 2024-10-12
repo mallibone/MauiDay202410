@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoI.MainPage">
+
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout
+                Padding="30,0"
+                Spacing="25">
+                <WebView
+                    x:Name="WebView"
+                    HeightRequest="800"
+                    SemanticProperties.Description="dot net maui website" />
+                <Image
+                    Source="dotnet_bot.png"
+                    HeightRequest="85"
+                    Aspect="AspectFit"
+                    SemanticProperties.Description="dot net bot in a race car number eight" />
+            </VerticalStackLayout>
+        </ScrollView>
+        <Label
+            Text="Loading ..."
+            FontSize="30"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            x:Name="Loading"
+            SemanticProperties.Description="Welcome to .NET MAUI" />
+    </Grid>
+
+</ContentPage>

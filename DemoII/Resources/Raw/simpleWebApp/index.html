@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>HybridWebView App</title>
+    <link rel="icon" href="data:,">
+    <script src="scripts/HybridWebView.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 18px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #512BD4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        textarea {
+            font-size: 16px;
+            width: 80%;
+            height: 300px;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .button-container {
+            text-align: center;
+        }
+        .textarea-container {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        window.addEventListener(
+            "HybridWebViewMessageReceived",
+            function (e) {
+                var messageFromCSharp = document.getElementById("messageFromCSharp");
+                messageFromCSharp.value += '\r\n' + e.detail.message;
+            });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>HybridWebView App!</h1>
+        <div class="button-container">
+            <button onclick="window.HybridWebView.SendRawMessage('Message from JS!')">Send message to C#</button>
+        </div>
+        <div class="textarea-container">
+            Messages from C#: <textarea readonly id="messageFromCSharp"></textarea>
+        </div>
+    </div>
+</body>
+</html>
